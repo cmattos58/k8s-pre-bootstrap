@@ -6,35 +6,35 @@
     - "{{ ansible_os_family }}.yml"
 
 - name: Include Pre-reqs setup task
-  include: pre_setup.yml
+  include_tasks: pre_setup.yml
 
 - name: Include task to disable swap
-  include: disable_swap.yml
+  include_tasks: disable_swap.yml
 
 - name: Include task to configure timezone and ntp
-  include: configure_timezone_ntp.yml
+  include_tasks: configure_timezone_ntp.yml
 
 - name: Include task to load required kernel modules and sysctl configs
-  include: load_kernel_modules_sysctl.yml
+  include_tasks: load_kernel_modules_sysctl.yml
 
 - name: Include task to configure /etc/hosts file on each node
-  include: configure_etc_host_file.yml
+  include_tasks: configure_etc_host_file.yml
 
 - name: Include task to configure docker
-  include: setup_docker.yml
+  include_tasks: setup_docker.yml
   when: container_runtime == "docker"
 
 - name: Include task to configure cri-o container runtime
-  include: setup_crio.yml
+  include_tasks: setup_crio.yml
   when: container_runtime == "cri-o"
 
 - name: Include task to configure containerd container runtime
-  include: setup_containerd.yml
+  include_tasks: setup_containerd.yml
   when: container_runtime == "containerd"
 
 - name: Include task to install  k8s packages
-  include: install_k8s_packages.yml
+  include_tasks: install_k8s_packages.yml
 
 - name: Include task to configure firewalld
-  include: configure_firewalld.yml
+  include_tasks: configure_firewalld.yml
   when: configure_firewalld
