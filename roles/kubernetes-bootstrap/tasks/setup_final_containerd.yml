@@ -1,0 +1,3 @@
+- name: Ajuste final crictl
+  ansible.builtin.shell: crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock --set image-endpoint=unix:///run/containerd/containerd.sock
+  #run_once: true

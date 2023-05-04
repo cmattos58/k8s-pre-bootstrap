@@ -31,6 +31,10 @@
 - name: Include task to configure containerd container runtime
   include_tasks: setup_containerd.yml
   when: container_runtime == "containerd"
+  
+- name: Include task to finalize containerd setup 
+  include_tasks: setup_final_containerd.yml 
+  when: container_runtime == "containerd"
 
 - name: Include task to install  k8s packages
   include_tasks: install_k8s_packages.yml
