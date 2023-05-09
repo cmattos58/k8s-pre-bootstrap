@@ -6,11 +6,12 @@
   become_method: sudo
   #gather_facts: no
   vars:
-    k8s_version: "1.23.4"                                  # Kubernetes version to be installed
+    k8s_version: "1.24.1"                                # Kubernetes version to be installed
     selinux_state: permissive                            # SELinux state to be set on k8s nodes                 
     timezone: "America/Fortaleza"                        # Timezone to set on all nodes
     k8s_cni: flannel                                     # calico, flannel
-    container_runtime: docker                      # docker, cri-o, containerd 
+    container_runtime: containerd                        # docker, cri-o, containerd 
+    container_version: "1.6.4"                           # Containerd Version to be installed
     pod_network_cidr: "10.244.0.0/16"                    # pod subnet if using cri-o runtime
     configure_firewalld: false                           # true / false (keep it false, k8s>1.19 have issues with firewalld)
     # Docker proxy support

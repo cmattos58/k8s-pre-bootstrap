@@ -6,7 +6,7 @@
 
 - name: Install containerd
   ansible.builtin.package:
-    name: [containerd.io]
+    name: "containerd.io = {{container_version}}"
     state: present
 
 - name: Create containerd directories required
